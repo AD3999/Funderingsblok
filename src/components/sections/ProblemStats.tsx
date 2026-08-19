@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 
 const STATS = [
   {
@@ -23,7 +24,7 @@ export function ProblemStats() {
   return (
     <section className="border-b border-panel-2 bg-panel py-16 sm:py-24">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">
             Het probleem is bekend. De coördinatie niet.
           </h2>
@@ -33,24 +34,26 @@ export function ProblemStats() {
             Wat ontbreekt is niet data — het is een manier om een heel
             blok eigenaren gezamenlijk tot besluitvorming te brengen.
           </p>
-        </div>
+        </Reveal>
         <dl className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-panel-2 bg-panel-2 sm:grid-cols-2 lg:grid-cols-4">
-          {STATS.map((stat) => (
-            <div key={stat.label} className="bg-panel p-6">
+          {STATS.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 0.08} className="bg-panel p-6">
               <dt className="font-mono text-3xl font-semibold text-steel">
                 {stat.value}
               </dt>
               <dd className="mt-2 font-sans text-sm text-foreground/70">
                 {stat.label}
               </dd>
-            </div>
+            </Reveal>
           ))}
         </dl>
-        <p className="mt-8 text-center font-sans text-sm text-foreground/50">
-          Herstel kost gemiddeld €92.000 per woning. Meer dan 75.000
-          eigenaren kunnen dit niet direct betalen; ruim 25.000 kunnen het
-          niet verantwoord lenen.
-        </p>
+        <Reveal delay={0.2} className="mt-10 flex justify-center">
+          <p className="max-w-md border-t border-dashed border-steel/30 pt-3 text-center font-mono text-sm text-foreground/60">
+            <span className="text-steel">€92.000</span> gemiddeld herstel per
+            woning — 75.000+ eigenaren kunnen dit niet direct betalen, 25.000+
+            kunnen het niet verantwoord lenen.
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

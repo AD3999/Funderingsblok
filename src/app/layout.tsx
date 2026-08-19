@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { DrawingDefs } from "@/components/ui/DrawingDefs";
+import { BlueprintBackdrop } from "@/components/ui/BlueprintBackdrop";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,6 +34,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-navy text-foreground">
+        <DrawingDefs />
+        <BlueprintBackdrop />
         {children}
       </body>
     </html>

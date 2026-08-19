@@ -1,10 +1,12 @@
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
+import { MotionButton } from "@/components/ui/MotionPress";
 
 export function PilotCta() {
   return (
     <section id="pilot" className="border-b border-panel-2 bg-panel py-16 sm:py-24">
       <Container className="max-w-2xl">
-        <div className="text-center">
+        <Reveal className="text-center">
           <h2 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">
             Vraag een pilot aan
           </h2>
@@ -13,7 +15,7 @@ export function PilotCta() {
             willen coördineren zonder spreadsheets. We nemen binnen twee
             werkdagen contact op.
           </p>
-        </div>
+        </Reveal>
 
         <form className="mt-10 space-y-5">
           <div>
@@ -84,12 +86,12 @@ export function PilotCta() {
             />
           </div>
 
-          <button
+          <MotionButton
             type="submit"
             className="w-full rounded-sm bg-steel px-6 py-3 font-sans text-sm font-semibold text-navy transition-colors hover:bg-steel/90"
           >
             Pilot aanvragen
-          </button>
+          </MotionButton>
         </form>
       </Container>
     </section>

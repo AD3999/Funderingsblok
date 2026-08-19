@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 
 const POINTS = [
   {
@@ -20,7 +21,7 @@ export function ForMunicipalities() {
     <section className="border-b border-panel-2 bg-panel py-16 sm:py-24">
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-start">
-          <div>
+          <Reveal>
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-steel">
               Voor gemeenten en procesbegeleiders
             </p>
@@ -32,20 +33,19 @@ export function ForMunicipalities() {
               werkvloer voor de procesbegeleider die vandaag al eigenaren
               belt, dossiers bijhoudt en offertes opvraagt.
             </p>
-          </div>
+          </Reveal>
           <ul className="space-y-6">
-            {POINTS.map((point) => (
-              <li
-                key={point.title}
-                className="rounded-sm border border-panel-2 bg-navy p-6"
-              >
-                <h3 className="font-display text-lg font-semibold text-foreground">
-                  {point.title}
-                </h3>
-                <p className="mt-2 font-sans text-sm text-foreground/70">
-                  {point.body}
-                </p>
-              </li>
+            {POINTS.map((point, i) => (
+              <Reveal key={point.title} delay={i * 0.1} as="li">
+                <div className="rounded-sm border border-panel-2 bg-navy p-6">
+                  <h3 className="font-display text-lg font-semibold text-foreground">
+                    {point.title}
+                  </h3>
+                  <p className="mt-2 font-sans text-sm text-foreground/70">
+                    {point.body}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </ul>
         </div>
