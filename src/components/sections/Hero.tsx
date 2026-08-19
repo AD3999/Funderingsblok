@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { MotionA } from "@/components/ui/MotionPress";
-import { BlockGlyph } from "./BlockGlyph";
+import { BlockSceneLoader } from "@/components/three/BlockSceneLoader";
 
 export function Hero() {
   return (
@@ -36,8 +36,8 @@ export function Hero() {
             </MotionA>
           </div>
         </Reveal>
-        <Reveal delay={0.15} className="mt-4 w-full max-w-xl">
-          <BlockGlyph className="w-full text-foreground" />
+        <Reveal delay={0.15} className="mt-4 w-full max-w-2xl">
+          <BlockSceneLoader className="aspect-[2/1] w-full" />
         </Reveal>
       </Container>
     </section>
