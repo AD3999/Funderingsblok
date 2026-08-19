@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json({ error: "Ongeldige aanvraag." }, { status: 400 });
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
   const municipality = typeof body.municipality === "string" ? body.municipality.trim() : "";
@@ -24,13 +24,13 @@ export async function POST(request: Request) {
 
   if (!municipality || !contact || !email) {
     return NextResponse.json(
-      { error: "Gemeente, contactpersoon en e-mailadres zijn verplicht." },
+      { error: "Municipality, contact person, and email address are required." },
       { status: 400 },
     );
   }
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json(
-      { error: "Vul een geldig e-mailadres in." },
+      { error: "Enter a valid email address." },
       { status: 400 },
     );
   }

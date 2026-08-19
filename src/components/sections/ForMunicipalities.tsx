@@ -1,43 +1,48 @@
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { GlassReveal } from "@/components/ui/GlassReveal";
+import { GLASS_CARD, ACCENT_HOVER } from "@/components/ui/glass";
 
 const POINTS = [
   {
-    title: "Geen spreadsheets en losse mailwisseling meer",
-    body: "Eén dossier per hersteleenheid: wie is geïnformeerd, wie heeft ingetekend, wie twijfelt nog. Niets raakt zoek tussen procesbegeleiders.",
+    title: "No more spreadsheets and scattered email threads",
+    body: "One file per repair unit: who's been informed, who's signed on, who's still on the fence. Nothing gets lost between process coordinators.",
+    accent: "steel",
   },
   {
-    title: "Draagvlak zichtbaar, niet aangenomen",
-    body: "Het consensusdashboard toont per eigenaar de status in real time — nodig om te weten wanneer een blok daadwerkelijk klaar is voor offerte en uitvoering.",
+    title: "Consent made visible, not assumed",
+    body: "The consensus dashboard shows each owner's status in real time — the only way to know when a block is actually ready for quotes and execution.",
+    accent: "ochre",
   },
   {
-    title: "Sluit aan op FDF en KCAF, niet ernaast",
-    body: "De Financieringsnavigator wijst eigenaren naar het Fonds Duurzaam Funderingsherstel of marktfinanciering; offertes gaan alleen naar KCAF-gecertificeerde aannemers die u al kent.",
+    title: "Plugs into FDF and KCAF, not around them",
+    body: "The Financing Navigator routes owners to the Fonds Duurzaam Funderingsherstel or market financing; quotes go only to KCAF-certified contractors you already trust.",
+    accent: "sage",
   },
 ];
 
 export function ForMunicipalities() {
   return (
-    <section className="border-b border-panel-2 bg-panel py-16 sm:py-24">
+    <section id="municipalities" className="border-b border-panel-2 bg-panel/30 py-16 sm:py-24">
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-start">
           <Reveal>
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-steel">
-              Voor gemeenten en procesbegeleiders
+              For municipalities and process coordinators
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold text-foreground sm:text-4xl">
-              Gebouwd voor wie de coördinatie al doet
+              Built for whoever already does the coordinating
             </h2>
             <p className="mt-4 font-sans text-foreground/70">
-              Funderingsblok is geen nieuw beleidsinstrument — het is de
-              werkvloer voor de procesbegeleider die vandaag al eigenaren
-              belt, dossiers bijhoudt en offertes opvraagt.
+              Funderingsblok isn&apos;t a new policy instrument — it&apos;s
+              the workspace for the process coordinator who already calls
+              owners, keeps files, and requests quotes today.
             </p>
           </Reveal>
           <ul className="space-y-6">
             {POINTS.map((point, i) => (
-              <Reveal key={point.title} delay={i * 0.1} as="li">
-                <div className="rounded-sm border border-panel-2 bg-navy p-6">
+              <GlassReveal key={point.title} as="li" delay={i * 0.1}>
+                <div className={`${GLASS_CARD} ${ACCENT_HOVER[point.accent]}`}>
                   <h3 className="font-display text-lg font-semibold text-foreground">
                     {point.title}
                   </h3>
@@ -45,7 +50,7 @@ export function ForMunicipalities() {
                     {point.body}
                   </p>
                 </div>
-              </Reveal>
+              </GlassReveal>
             ))}
           </ul>
         </div>

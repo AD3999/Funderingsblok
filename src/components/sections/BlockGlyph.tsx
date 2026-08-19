@@ -1,9 +1,9 @@
 const HOUSES = [
-  { status: "sage" as const, label: "Akkoord", pile: "new" as const },
-  { status: "sage" as const, label: "Akkoord", pile: "new" as const },
-  { status: "ochre" as const, label: "In overleg", pile: "mixed" as const },
-  { status: "steel" as const, label: "Diagnose", pile: "old" as const },
-  { status: "brick" as const, label: "Niet akkoord", pile: "old" as const },
+  { status: "sage" as const, label: "Agreed", pile: "new" as const },
+  { status: "sage" as const, label: "Agreed", pile: "new" as const },
+  { status: "ochre" as const, label: "In discussion", pile: "mixed" as const },
+  { status: "steel" as const, label: "Diagnosis", pile: "old" as const },
+  { status: "brick" as const, label: "Not agreed", pile: "old" as const },
 ];
 
 const STATUS_STROKE: Record<string, string> = {
@@ -17,17 +17,17 @@ const STATUS_STROKE: Record<string, string> = {
  * Foundation cross-section, drawn to section-cut convention: a shared
  * strip footing in soil hatch, with each house's pile shown as either the
  * original rotting timber pile (old, cross-hatched) or the replacement
- * concrete pile (new, dot-hatched) — the literal mechanic of
- * funderingsherstel, not a decorative stand-in for it. Consent status
+ * concrete pile (new, dot-hatched) — the literal mechanic of shared-
+ * foundation repair, not a decorative stand-in for it. Consent status
  * reads as a stroke color + tag on each house, independent of pile
- * material, since a house can be "akkoord" before its pile is replaced.
+ * material, since a house can be "agreed" before its pile is replaced.
  */
 export function BlockGlyph({ className = "" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 520 260"
       role="img"
-      aria-label="Doorsnede van een rij huizen op een gedeelde fundering: bestaande houten palen worden vervangen door nieuwe betonpalen, per eigenaar met een eigen consensusstatus"
+      aria-label="Cross-section of a row of houses on a shared foundation: existing timber piles are being replaced by new concrete piles, each owner with their own consent status"
       className={className}
     >
       {/* soil below the section line */}
@@ -90,7 +90,7 @@ export function BlockGlyph({ className = "" }: { className?: string }) {
         ±9m
       </text>
 
-      {/* leader annotation on the "in overleg" pile */}
+      {/* leader annotation on the "in discussion" pile */}
       <g stroke="var(--color-ochre)" strokeOpacity="0.7" strokeWidth="1">
         <line x1="253" y1="170" x2="253" y2="150" />
         <line x1="253" y1="150" x2="290" y2="150" />
@@ -103,7 +103,7 @@ export function BlockGlyph({ className = "" }: { className?: string }) {
         fill="var(--color-ochre)"
         fillOpacity="0.85"
       >
-        schroefpaal Ø320mm
+        screw pile Ø320mm
       </text>
     </svg>
   );
