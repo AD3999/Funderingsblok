@@ -35,6 +35,12 @@ export async function POST(request: Request) {
     );
   }
 
+  // v1 has no database or email provider, so the server log is the only
+  // record of a submission — contact name/email are logged intentionally
+  // so a pilot request can be followed up on. Replace this with a proper
+  // store (DB row or outbound email) before relying on this in production;
+  // provider logs aren't an access-controlled or retention-managed system
+  // for personal data.
   console.log("[pilot-request]", {
     municipality,
     contact,

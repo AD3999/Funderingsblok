@@ -1,6 +1,10 @@
+import dynamic from "next/dynamic";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { StepsScroller } from "./StepsScroller";
+
+const StepsScroller = dynamic(() =>
+  import("./StepsScroller").then((mod) => mod.StepsScroller),
+);
 
 export const STEPS = [
   {
